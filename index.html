@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px 50px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+        h2 {
+            color: #00796b;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #009688;
+            border-radius: 6px;
+            resize: vertical;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #004d40;
+        }
+        p {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #004d40;
+        }
+        strong {
+            color: #00796b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sentiment Analysis</h2>
+        <form action="/predict" method="post">
+            <textarea name="text" rows="4" cols="50" placeholder="Enter text here..."></textarea><br><br>
+            <input type="submit" value="Predict">
+        </form>
+        {% if sentiment %}
+        <p><strong>Sentiment:</strong> {{ sentiment }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
